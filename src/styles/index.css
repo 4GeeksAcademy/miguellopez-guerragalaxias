@@ -1,3 +1,627 @@
-/* 
-    General Styles
-*/
+.card-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 50px; 
+    padding-bottom: 50px;
+    width: auto;
+}
+
+.card {
+    width: 18rem;
+}
+
+body {
+    background-image: url(https://i.gifer.com/myf.gif);   
+    background-size: cover; 
+    background-position: center; 
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+h1 {
+    outline: none;
+    cursor: pointer;
+    border: none;
+    padding: 0.9rem 2rem;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    font-size: 27px;
+    border-radius: 500px;
+    overflow: hidden;
+    background: #2fbb39;
+    color: ghostwhite;
+    width: 550px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+   }
+   
+   h1 strong {
+    position: relative;
+    z-index: 10;
+    transition: color 0.4s;
+   }
+   
+   h1:hover strong {
+    color: black;
+   }
+   
+   h1::before,
+   h1::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+   }
+   
+   h1::before {
+    content: "";
+    background: #000;
+    width: 120%;
+    left: -10%;
+    transform: skew(30deg);
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+   }
+   
+   h1:hover::before {
+    transform: translate3d(100%, 0, 0);
+   }
+  
+   .title {
+    font-weight: 600;
+    font-size: 20px;
+    color: white;
+  }
+
+  .card {
+    width: 300px;
+    height: 300px;
+    background: #000000;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid #18d322;
+    overflow: hidden;
+  }
+  
+  .card::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 200px;
+    left: 50%;
+    top: 50%;
+    background-color: #18d322;
+    animation: rotate 3s linear infinite;
+    z-index: 6;
+    transform-origin: 0 0;
+  }
+  
+  .card::before {
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 200px;
+    left: 50%;
+    top: 50%;
+    transform: rotate(-4deg);
+    background-color: #18d322;
+    animation: rotate 3s linear infinite;
+    box-shadow: 0 0 10px 10px #2fbb39, 0 0 70px 10px #2fbb39;
+    z-index: 6;
+    transform-origin: 0 0;
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes doted {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 10px 5px rgba(24, 211, 33, 0.3),
+        0 0 10px 10px rgba(24, 211, 33, 0.3);
+    }
+  
+    60% {
+      transform: scale(0.95);
+      box-shadow: 0 0 10px 5px rgba(24, 211, 33, 0.3),
+        0 0 10px 10px rgba(24, 211, 33, 0.3);
+    }
+  
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(24, 211, 33, 0.7), 0 0 0 0 rgba(24, 211, 33, 0.5),
+        0 0 0 0 rgba(24, 211, 33, 0.3);
+      opacity: 0;
+    }
+  }
+
+  .card-title {
+    color: #ffffff;
+}
+
+.card-title:hover {
+    color: #2fbb39;
+}
+
+.botonCard {
+  font-size: 18px;
+  color: #e1e1e1;
+  font-family: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: color;
+  background-color: black;
+}
+
+.botonCard:focus,
+.botonCard:hover {
+  color: #2fbb39;
+}
+
+.botonCard:focus:after,
+.botonCard:hover:after {
+  width: 100%;
+  left: 0%;
+}
+
+.botonCard:after {
+  content: "";
+  pointer-events: none;
+  bottom: -2px;
+  left: 50%;
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #2fbb39;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: width, left;
+}
+
+.container input {
+  opacity: 0;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+  transition: 100ms;
+  justify-content: center;
+}
+
+.checkmark {
+  top: 0;
+  left: 0;
+  height: 2em;
+  width: 2em;
+  transition: 100ms;
+  animation: dislike_effect 400ms ease;
+}
+
+.container input:checked ~ .checkmark path {
+  fill: #FF5353;
+  stroke-width: 0;
+}
+
+.container input:checked ~ .checkmark {
+  animation: like_effect 400ms ease;
+}
+
+.container:hover {
+  transform: scale(1.1);
+}
+
+@keyframes like_effect {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes dislike_effect {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.titulo {
+  all: unset;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0.6em 2em;
+  border: #2fbb39 solid 0.15em;
+  border-radius: 0.25em;
+  color: #2fbb39;
+  font-size: 3em;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border 300ms, color 300ms;
+  user-select: none;
+  margin-left: 50px;
+  text-align: center;
+  align-items: center;
+  height: 200px;
+}
+
+.titulo p {
+  z-index: 1;
+}
+
+.titulo:hover {
+  color: #212121;
+}
+
+.titulo:active {
+  border-color: teal;
+}
+
+.titulo::after, .titulo::before {
+  content: "";
+  position: absolute;
+  width: 9em;
+  aspect-ratio: 1;
+  background: mediumspringgreen;
+  opacity: 50%;
+  border-radius: 50%;
+  transition: transform 500ms, background 300ms;
+}
+
+.titulo::before {
+  left: 0;
+  transform: translateX(-8em);
+}
+
+.titulo::after {
+  right: 0;
+  transform: translateX(8em);
+}
+
+.titulo:hover:before {
+  transform: translateX(-1em);
+}
+
+.titulo:hover:after {
+  transform: translateX(1em);
+}
+
+.titulo:active:before,
+.titulo:active:after {
+  background: teal;
+}
+
+.loading svg polyline {
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.loading svg polyline#back {
+  fill: none;
+  stroke: #ff4d5033;
+}
+
+.loading svg polyline#front {
+  fill: none;
+  stroke: #ff4d4f;
+  stroke-dasharray: 48, 144;
+  stroke-dashoffset: 192;
+  animation: dash_682 1.4s linear infinite;
+}
+
+@keyframes dash_682 {
+  72.5% {
+    opacity: 0;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.navbar {
+  background-color: darkslategrey;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 13rem;
+  overflow: hidden;
+  height: 3rem;
+  background-size: 300% 300%;
+  backdrop-filter: blur(1rem);
+  border-radius: 5rem;
+  transition: 0.5s;
+  animation: gradient_301 5s ease infinite;
+  border: double 4px transparent;
+  background-image: linear-gradient(#212121, #212121),  linear-gradient(137.48deg, #ffdb3b 10%,#FE53BB 45%, #8F51EA 67%, #0044ff 87%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+#container-stars {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: 0.5s;
+  backdrop-filter: blur(1rem);
+  border-radius: 5rem;
+}
+
+strong {
+  z-index: 2;
+  font-family: 'Avalors Personal Use';
+  font-size: 30px;
+  letter-spacing: 5px;
+  color: #FFFFFF;
+  text-shadow: 0 0 4px white;
+}
+
+#glow {
+  position: absolute;
+  display: flex;
+  width: 12rem;
+}
+
+.circle {
+  width: 100%;
+  height: 30px;
+  filter: blur(2rem);
+  animation: pulse_3011 4s infinite;
+  z-index: -1;
+}
+
+.circle:nth-of-type(1) {
+  background: rgba(254, 83, 186, 0.636);
+}
+
+.circle:nth-of-type(2) {
+  background: rgba(142, 81, 234, 0.704);
+}
+
+.btn:hover #container-stars {
+  z-index: 1;
+  background-color: #212121;
+}
+
+.btn:hover {
+  transform: scale(1.1)
+}
+
+.btn:active {
+  border: double 4px #FE53BB;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  animation: none;
+}
+
+.btn:active .circle {
+  background: #FE53BB;
+}
+
+#stars {
+  position: relative;
+  background: transparent;
+  width: 200rem;
+  height: 200rem;
+}
+
+#stars::after {
+  content: "";
+  position: absolute;
+  top: -10rem;
+  left: -100rem;
+  width: 100%;
+  height: 100%;
+  animation: animStarRotate 90s linear infinite;
+}
+
+#stars::after {
+  background-image: radial-gradient(#ffffff 1px, transparent 1%);
+  background-size: 50px 50px;
+}
+
+#stars::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 170%;
+  height: 500%;
+  animation: animStar 60s linear infinite;
+}
+
+#stars::before {
+  background-image: radial-gradient(#ffffff 1px, transparent 1%);
+  background-size: 50px 50px;
+  opacity: 0.5;
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-135rem);
+  }
+}
+
+@keyframes animStarRotate {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0);
+  }
+}
+
+@keyframes gradient_301 {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse_3011 {
+  0% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+.dropdown-toggle {
+  color: #2fbb39;
+  width: 1800px;
+}
+
+.dropdown-menu {
+  background-color: black;
+  color: #2fbb39
+}
+
+.deleteButton {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.deleteButton svg {
+  width: 44%;
+}
+.deleteButton:hover {
+  background-color: rgb(237, 56, 56);
+  overflow: visible;
+}
+.bin path {
+  transition: all 0.2s;
+}
+.deleteButton:hover .bin path {
+  fill: #fff;
+}
+.deleteButton:active {
+  transform: scale(0.98);
+}
+.tooltip {
+  --tooltip-color: rgb(41, 41, 41);
+  position: absolute;
+  top: -40px;
+  background-color: var(--tooltip-color);
+  color: white;
+  border-radius: 5px;
+  font-size: 12px;
+  padding: 8px 12px;
+  font-weight: 600;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.105);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.tooltip::before {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  content: "";
+  background-color: var(--tooltip-color);
+  bottom: -10%;
+}
+.deleteButton:hover .tooltip {
+  opacity: 1;
+}
+
+.cardIndividual {
+  height: 600px;
+  width: 500px;
+  background-color: black;
+  color: #2fbb39
+  
+}
+
+.card-img-top {
+  height: 180px;
+  width: 300px;
+}
+
+.slide {
+  color: #2fbb39
+}

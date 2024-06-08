@@ -223,11 +223,11 @@ h1 {
   height: 2em;
   width: 2em;
   transition: 100ms;
-  animation: dislike_effect 400ms ease;
+  animation: dislike_effect 400ms ease; fill: white;
 }
 
 .container input:checked ~ .checkmark path {
-  fill: #FF5353;
+  fill: RED;
   stroke-width: 0;
 }
 
@@ -609,12 +609,21 @@ strong {
   opacity: 1;
 }
 
+.containerIndividual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .cardIndividual {
-  height: 600px;
-  width: 500px;
+  height: 600px !important;
+  width: 600px !important;
   background-color: black;
-  color: #2fbb39
-  
+  color: #2fbb39;
+  max-width: 100%; /* Asegura que no exceda el ancho del contenedor padre */
+  min-width: 600px; /* Asegura que no sea menor de 600px */
+  box-sizing: border-box; /* Incluye el padding y el borde en el ancho y la altura */
+  margin-bottom: 20px;
 }
 
 .card-img-top {
@@ -624,4 +633,8 @@ strong {
 
 .slide {
   color: #2fbb39
+}
+
+footer {
+  background: #18d322;
 }

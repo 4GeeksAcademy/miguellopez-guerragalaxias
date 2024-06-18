@@ -30,7 +30,7 @@ export const CartaPlanetas = ({ name, population, climate, gravity, uid }) => {
               <button className="btn btn-primary botonCard" onClick={() => {navigate(`/vista-planeta-individual/${planeta.uid}/${index}`)}}>VER MAS</button>
               <p onClick={() => actions.comprobarFavoritos(planeta.name)}>
                 <label className="container">
-                  <input type="checkbox" defaultChecked={true} />
+                  <input type="checkbox" defaultChecked={false} />
                   <div className="checkmark">
                     <svg viewBox="0 0 256 256">
                       <rect fill="none" height="256" width="256"></rect>

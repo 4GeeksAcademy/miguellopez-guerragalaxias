@@ -11,10 +11,11 @@ export const Navbar = () => {
   
     };
 
-    {
+    
         const navigate = useNavigate();
       
         const handleTitleClick = () => {
+            console.log("hola")
           navigate('/');
         };
 
